@@ -1,5 +1,20 @@
 const express = require('express');
+const csp = require('express-csp');
 const app = express();
+
+csp.extend(app, {
+    policy: {
+        directives: {
+            'default-src': [
+                'self'
+                // 'localhost:4000'
+            ]
+        }
+    },
+    reportPolicy: {
+        //useScriptNonce: true
+    }
+});
 
 app.all('/reflected', require('./routes/reflected').controller);
 app.all('/persistent', require('./routes/persistent').controller);

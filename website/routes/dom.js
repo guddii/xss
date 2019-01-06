@@ -6,7 +6,7 @@ exports.controller = function (req, res) {
                 <body>
                     <label for="watched">Beobachtetes Feld</label>
                     <input id="watched">
-                    <script>
+                    <script nonce="${res.locals.cspToken}">
                         const urlParams = new URLSearchParams(window.location.search);
                         const leak = urlParams.get('leak');
                         document.writeln(leak);
