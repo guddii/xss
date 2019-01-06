@@ -9,7 +9,7 @@ exports.controller = function (req, res) {
                     <script>
                         const urlParams = new URLSearchParams(window.location.search);
                         const leak = urlParams.get('leak');
-                        document.writeln(leak);
+                        document.writeln(escape(leak));
                     </script>
                 </body>
               </html>`);

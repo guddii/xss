@@ -3,6 +3,7 @@ exports.controller = function (req, res) {
     if (req.query.leak) {
         store = store + req.query.leak;
     }
+    // noinspection JSDeprecatedSymbols
     res.send(`<html lang="de">
                 <head>
                     <title>Persistent oder beständiges XSS</title>
@@ -10,7 +11,7 @@ exports.controller = function (req, res) {
                 <body>
                     <label for="watched">Beobachtetes Feld</label>
                     <input id="watched">
-                    ${store}
+                    ${escape(store)}
                     </body>
               </html>`);
 };
